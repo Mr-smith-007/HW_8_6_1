@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace HW_8_6_1
 {
-    internal static class DirectoryRemover
+    static class DirectoryRemover
     {
         public static void Cleanup(string dirName) 
         {
             DirectoryInfo dir = new DirectoryInfo(dirName);
             if (dir.Exists)
             {
-             try
+                try
                 {
                     var files = dir.GetFiles();
                     foreach (var file in files)
@@ -25,8 +25,14 @@ namespace HW_8_6_1
                         di.Delete(true);
                     }
                 }
-                catch { }
+                catch (Exception ex) 
+                {
+                    Console.WriteLine($"Ошибка: {ex}");
+                }
+                Console.WriteLine($"Все содержимое каталога {dirName} удалено");
             }
+            else
+                Console.WriteLine("Каталога не существует");
         }
         
     }

@@ -23,6 +23,7 @@ namespace HW_8_6_1
                     }
                     foreach (var di in dir.GetDirectories())
                     {
+                        Cleanup(di.FullName);
                         if (AccsessTime(di))
                             di.Delete(true);
                     }

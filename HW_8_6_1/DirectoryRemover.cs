@@ -35,27 +35,14 @@ namespace HW_8_6_1
             else
                 Console.WriteLine("Каталога не существует");
         }
-        public static bool AccsessTime(FileInfo fi)
+        public static bool AccsessTime(FileSystemInfo x)
         {
             bool old;
             DateTime time1 = DateTime.Now;
-            DateTime time2 = fi.LastAccessTime;
+            DateTime time2 = x.LastAccessTime;
             TimeSpan timeInterval = TimeSpan.FromMinutes(1);
             TimeSpan dif = time1.Subtract(time2);
             if (dif > timeInterval)
-                old = true;
-            else
-                old = false;
-            return old;
-        }
-        public static bool AccsessTime(DirectoryInfo d)
-        {
-            bool old;
-            DateTime time1 = DateTime.Now;
-            DateTime time2 = d.LastAccessTime;
-            TimeSpan timeInterval = TimeSpan.FromMinutes(1);
-            TimeSpan dif = time1.Subtract(time2);
-            if (dif.Minutes > timeInterval.Minutes)
                 old = true;
             else
                 old = false;

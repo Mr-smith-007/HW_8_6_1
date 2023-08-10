@@ -8,6 +8,26 @@ namespace HW_8_6_1
 {
     internal static class DirectoryRemover
     {
-
+        public static void Cleanup(string dirName) 
+        {
+            DirectoryInfo dir = new DirectoryInfo(dirName);
+            if (dir.Exists)
+            {
+             try
+                {
+                    var files = dir.GetFiles();
+                    foreach (var file in files)
+                    {
+                        file.Delete();
+                    }
+                    foreach (var di in dir.GetDirectories())
+                    {
+                        di.Delete(true);
+                    }
+                }
+                catch { }
+            }
+        }
+        
     }
 }

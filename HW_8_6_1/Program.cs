@@ -8,6 +8,6 @@ class Program
     public static void Main(string[]  args)
     {
         Console.WriteLine("Введите путь к каталогу");
-        string path = Console.ReadLine();
+        string path = "@" + Console.ReadLine();
     }
 }

@@ -24,7 +24,7 @@ namespace HW_8_6_1
                     foreach (var di in dir.GetDirectories())
                     {
                         Cleanup(di.FullName);
-                        if (AccsessTime(di))
+                        if (AccsessTime(di) && (di.GetFiles().Length == 0 && di.GetDirectories().Length == 0))
                             di.Delete(true);
                     }
                 }

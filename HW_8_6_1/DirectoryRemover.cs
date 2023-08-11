@@ -41,7 +41,7 @@ namespace HW_8_6_1
             bool old;
             DateTime time1 = DateTime.Now;
             DateTime time2 = x.LastAccessTime;
-            TimeSpan timeInterval = TimeSpan.FromMinutes(5);
+            TimeSpan timeInterval = TimeSpan.FromMinutes(30);
             TimeSpan dif = time1.Subtract(time2);
             if (dif > timeInterval)
                 old = true;
